@@ -1,0 +1,40 @@
+class MinimumDifference{
+    public static int minimumDifference(int[] nums)
+    {
+        for(int i=0;i<nums.length-1;i++)
+        {
+            for(int j=i+1;j<nums.length;j++)
+            {
+                if(nums[i]>nums[j])
+                {
+                    int temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+            }
+        }
+        int ans=Integer.MAX_VALUE;
+        int l=0,k=3;
+        int n=nums.length;
+        int r=0;
+        for(r=0;r<n;r++)
+        {
+            //Skip initial part
+            //middle
+            if(r-l==k){
+            l++;
+        }
+        if(r-l+1==k){
+            int temp=nums[r]-nums[l];
+            ans=Math.min(ans,temp);
+        }
+    }
+    return ans;
+    }
+    public static void main(String[] args)
+    {
+        int[] nums={9,4,1,7};
+        MinimumDifference m=new MinimumDifference();
+        System.out.println(minimumDifference(nums));
+    }
+}
