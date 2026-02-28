@@ -14,7 +14,7 @@ class MinimumDifference{
             }
         }
         int ans=Integer.MAX_VALUE;
-        int l=0,k=3;
+        int l=0,k=2;
         int n=nums.length;
         int r=0;
         for(r=0;r<n;r++)
